@@ -1,0 +1,26 @@
+[versions]
+spring-boot = "3.5.7"
+kotlin = "2.1.20"
+springdoc = "2.8.14"
+testcontainers = "1.21.3"
+
+[libraries]
+spring-boot-bom = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
+spring-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+spring-jdbc = { module = "org.springframework.boot:spring-boot-starter-jdbc" }
+spring-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
+spring-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+
+jackson-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }
+liquibase = { module = "org.liquibase:liquibase-core" }
+postgresql = { module = "org.postgresql:postgresql" }
+
+springdoc = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }
+testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }
+junit-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
