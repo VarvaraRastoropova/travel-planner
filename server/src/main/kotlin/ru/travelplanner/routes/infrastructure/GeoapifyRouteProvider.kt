@@ -10,6 +10,7 @@ import ru.travelplanner.errors.NotFoundException
 import ru.travelplanner.routes.domain.RoutePoint
 import ru.travelplanner.routes.domain.CalculatedRoute
 import ru.travelplanner.routes.domain.RouteProvider
+import ru.travelplanner.helpers.RouteHelper
 
 @Component
 class GeoapifyRouteProvider(
@@ -86,31 +87,10 @@ class GeoapifyRouteProvider(
             }
 
             line.map { coordinate ->
-                toRoutePoint(coordinate)
+                RouteHelper.toRoutePoint(coordinate)
             }
         }
 
         return CalculatedRoute(distanceMeters = distanceMeters, durationSeconds = durationSeconds, paths = paths)
-    }
-
-    private fun toRoutePoint(coordinate: JsonNode): RoutePoint {
-        if (
-            !coordinate.isArray || coordinate.size() < 2 ||
-            !coordinate.path(0).isNumber || !coordinate.path(1).isNumber
-        ) {
-            throw ExternalServiceException("Error: Geoapify returned invalid route coordinates.")
-        }
-
-        val longitude = coordinate.path(0).asDouble()
-        val latitude = coordinate.path(1).asDouble()
-
-        if (
-            !latitude.isFinite() || latitude !in -90.0..90.0 ||
-            !longitude.isFinite() || longitude !in -180.0..180.0
-        ) {
-            throw ExternalServiceException("Error: Geoapify returned invalid route coordinates.")
-        }
-
-        return RoutePoint(latitude = latitude, longitude = longitude)
     }
 }

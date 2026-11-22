@@ -18,7 +18,6 @@ dependencies {
     implementation(libs.spring.jdbc)
     implementation(libs.spring.validation)
     implementation(libs.jackson.kotlin)
-    implementation(libs.kotlin.reflect)
     implementation(libs.liquibase)
     implementation(libs.springdoc)
 

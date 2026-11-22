@@ -10,14 +10,6 @@ import org.springframework.web.bind.annotation.RestController
 import ru.travelplanner.recommendations.application.RecommendationService
 import ru.travelplanner.recommendations.domain.RecommendationContext
 
-data class PrepareRecommendationRequest(
-    @field:NotBlank
-    @field:Size(max = 2000)
-    val text: String,
-    val latitude: Double? = null,
-    val longitude: Double? = null
-)
-
 @RestController
 @RequestMapping("/api/recommendations")
 class RecommendationController(private val recommendationService: RecommendationService) {

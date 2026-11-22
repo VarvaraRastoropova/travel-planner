@@ -4,12 +4,12 @@ import org.springframework.stereotype.Service
 import ru.travelplanner.errors.NotFoundException
 import ru.travelplanner.locations.domain.FoundLocation
 import ru.travelplanner.locations.domain.LocationProvider
-import ru.travelplanner.locations.domain.validateCoordinates
+import ru.travelplanner.helpers.RouteHelper
 
 @Service
 class LocationService(private val locationProvider: LocationProvider) {
     fun findCity(latitude: Double, longitude: Double): FoundLocation {
-        validateCoordinates(latitude, longitude)
+        RouteHelper.validateCoordinates(latitude, longitude)
         return locationProvider.findCity(latitude, longitude)
     }
 
@@ -34,7 +34,7 @@ class LocationService(private val locationProvider: LocationProvider) {
     }
 
     fun findNearby(latitude: Double, longitude: Double, radiusMeters: Int, categories: List<String>): List<FoundLocation> {
-        validateCoordinates(latitude, longitude)
+        RouteHelper.validateCoordinates(latitude, longitude)
 
         require(radiusMeters in 100..10000) {
             "Error: Search radius must be between 100 and 10000 meters."

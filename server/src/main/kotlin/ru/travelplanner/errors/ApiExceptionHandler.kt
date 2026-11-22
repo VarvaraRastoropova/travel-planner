@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException
 
-data class ApiError(
-    val message: String
-)
-
 @RestControllerAdvice
 class ApiExceptionHandler {
     @ExceptionHandler(NotFoundException::class)

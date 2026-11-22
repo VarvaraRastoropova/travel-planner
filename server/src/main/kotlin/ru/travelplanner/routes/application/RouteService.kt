@@ -8,7 +8,7 @@ import ru.travelplanner.routes.domain.RouteProvider
 import ru.travelplanner.routes.domain.RouteRepository
 import ru.travelplanner.routes.domain.SavedRoute
 import ru.travelplanner.trips.domain.TripRepository
-import ru.travelplanner.locations.domain.validateCoordinates
+import ru.travelplanner.helpers.RouteHelper
 import java.time.Instant
 import java.util.UUID
 import org.slf4j.LoggerFactory
@@ -26,7 +26,7 @@ class RouteService(
             "Error: Route must contain at least 2 points."
         }
 
-        points.forEach { point -> validateCoordinates(point.latitude, point.longitude) }
+        points.forEach { point -> RouteHelper.validateCoordinates(point.latitude, point.longitude) }
 
         return routeProvider.buildWalkingRoute(points)
     }

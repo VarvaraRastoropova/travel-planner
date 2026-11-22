@@ -11,21 +11,6 @@ import ru.travelplanner.trips.domain.Trip
 import java.net.URI
 import java.util.UUID
 
-data class CreateTripRequest(
-    @field:NotBlank
-    @field:Size(max = 120)
-    val name: String
-)
-
-data class RenameTripRequest(
-    @field:NotBlank
-    @field:Size(max = 120)
-    val name: String,
-
-    @field:Min(0)
-    val version: Long
-)
-
 @RestController
 @RequestMapping("/api/trips")
 class TripController(private val tripService: TripService) {

@@ -12,7 +12,6 @@ spring-validation = { module = "org.springframework.boot:spring-boot-starter-val
 spring-test = { module = "org.springframework.boot:spring-boot-starter-test" }
 
 jackson-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
-kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }
 liquibase = { module = "org.liquibase:liquibase-core" }
 postgresql = { module = "org.postgresql:postgresql" }
 

@@ -5,7 +5,7 @@ import ru.travelplanner.errors.NotFoundException
 import ru.travelplanner.locations.domain.LocationProvider
 import ru.travelplanner.recommendations.domain.PreferenceParser
 import ru.travelplanner.recommendations.domain.RecommendationContext
-import ru.travelplanner.locations.domain.validateCoordinates
+import ru.travelplanner.helpers.RouteHelper
 
 @Service
 class RecommendationService(private val preferenceParser: PreferenceParser, private val locationProvider: LocationProvider) {
@@ -17,7 +17,7 @@ class RecommendationService(private val preferenceParser: PreferenceParser, priv
         }
 
         if (latitude != null && longitude != null) {
-            validateCoordinates(latitude, longitude)
+            RouteHelper.validateCoordinates(latitude, longitude)
         }
 
         val preferences = preferenceParser.parse(text)

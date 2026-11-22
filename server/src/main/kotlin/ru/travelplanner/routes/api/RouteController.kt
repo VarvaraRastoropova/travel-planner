@@ -8,10 +8,6 @@ import ru.travelplanner.routes.application.RouteService
 import ru.travelplanner.routes.domain.RoutePoint
 import ru.travelplanner.routes.domain.CalculatedRoute
 
-data class CalculateRouteRequest(
-    val points: List<RoutePoint>
-)
-
 @RestController
 @RequestMapping("/api/routes")
 class RouteController(private val routeService: RouteService) {

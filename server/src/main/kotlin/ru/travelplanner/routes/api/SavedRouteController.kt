@@ -13,11 +13,6 @@ import ru.travelplanner.routes.domain.RoutePoint
 import ru.travelplanner.routes.domain.SavedRoute
 import java.util.UUID
 
-data class CreateRouteRequest(
-    val name: String,
-    val points: List<RoutePoint>
-)
-
 @RestController
 @RequestMapping("/api/trips/{tripId}/routes")
 class SavedRouteController(private val routeService: RouteService) {
