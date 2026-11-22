@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+
+  liquibase:
+    change-log: classpath:db/changelog/changelog.yaml
+
+groq:
+  base-url: https://api.groq.com/openai/v1
+  api-key: ${GROQ_API_KEY:}
+  model: qwen/qwen3.8-27b
+
+geoapify:
+  base-url: https://api.geoapify.com
+  api-key: ${GEOAPIFY_API_KEY:}
